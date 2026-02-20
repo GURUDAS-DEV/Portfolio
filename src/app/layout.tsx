@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import {  Edu_NSW_ACT_Cursive, Space_Grotesk } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
-});
-
-const outfit = Edu_NSW_ACT_Cursive({
-  subsets: ["latin"],
-  variable: "--font-edu-nsw-act-cursive",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceGrotesk.variable} ${outfit.variable} antialiased`}
-      >
+      <body className={`${spaceGrotesk.variable} antialiased`}>
         {children}
       </body>
     </html>
