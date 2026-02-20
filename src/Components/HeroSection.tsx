@@ -52,34 +52,34 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="w-full px-10 pb-10 pt-6 font-space-grotesk">
-      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <section className="w-full px-5 pb-8 pt-4 font-space-grotesk sm:px-8 sm:pt-6 md:px-10 md:pb-10">
+      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-6">
-          <div className="flex items-center gap-3 text-2xl font-bold text-sky-400">
+          <div className="flex items-center gap-3 text-xl font-bold text-sky-400 sm:text-2xl">
             <span>Hi there! 👋</span>
           </div>
 
-          <h1 className="text-6xl font-black tracking-tight text-black">
+          <h1 className="text-4xl font-black tracking-tight text-black sm:text-5xl lg:text-6xl">
             I&apos;m Gurudas Bhardwaj.
           </h1>
 
-          <p className="max-w-xl text-lg leading-7  text-black/80">
+          <p className="max-w-xl text-base leading-7 text-black/80 sm:text-lg">
             I'm a passionate software engineer with expertise in building
             scalable and efficient applications. I specialize in full-stack
             development, cloud technologies, and bulding Real world application.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <div className="cta-overlay-shell">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
               <Link
                 href="https://github.com/GURUDAS-DEV"
                 target="_blank"
                 rel="noreferrer"
-                className="nav-cta cta-overlay-front  flex h-11 w-11 items-center justify-center rounded-md border-3 border-black bg-white"
+                className="nav-cta cta-overlay-front flex h-10 w-10 items-center justify-center rounded-md border-3 border-black bg-white sm:h-11 sm:w-11"
                 aria-label="GitHub"
               >
-                <FaGithub className="text-black" size={20} />
+                <FaGithub className="text-black" size={18} />
               </Link>
             </div>
             <div className="cta-overlay-shell">
@@ -88,10 +88,10 @@ const HeroSection = () => {
                 href="https://www.linkedin.com/in/gurudas-bhardwaj-b900a5314/"
                 target="_blank"
                 rel="noreferrer"
-                className="nav-cta cta-overlay-front  flex h-11 w-11 items-center justify-center rounded-md border-3 border-black bg-white"
+                className="nav-cta cta-overlay-front flex h-10 w-10 items-center justify-center rounded-md border-3 border-black bg-white sm:h-11 sm:w-11"
                 aria-label="Linkedin"
               >
-                <FaLinkedin className="text-black" size={20} />
+                <FaLinkedin className="text-black" size={18} />
               </Link>
             </div>
             <div className="cta-overlay-shell">
@@ -100,10 +100,10 @@ const HeroSection = () => {
                 href="https://leetcode.com/u/GurudasBhardwaj/"
                 target="_blank"
                 rel="noreferrer"
-                className="nav-cta cta-overlay-front  flex h-11 w-11 items-center justify-center rounded-md border-3 border-black bg-white"
+                className="nav-cta cta-overlay-front flex h-10 w-10 items-center justify-center rounded-md border-3 border-black bg-white sm:h-11 sm:w-11"
                 aria-label="Leetcode"
               >
-                <SiLeetcode className="text-black" size={20} />
+                <SiLeetcode className="text-black" size={18} />
               </Link>
             </div>
           </div>
@@ -111,7 +111,7 @@ const HeroSection = () => {
           <div className="flex flex-wrap items-center gap-6">
             <div className="cta-overlay-shell">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-              <button className="nav-cta cta-overlay-front rounded-lg border-3 border-black cursor-pointer bg-[#67d6ea] px-10 py-4 text-md text-black font-black ">
+              <button className="nav-cta cta-overlay-front cursor-pointer rounded-lg border-3 border-black bg-[#67d6ea] px-6 py-3 text-sm font-black text-black sm:px-8 sm:py-4 sm:text-base">
                 Get in Touch!
               </button>
             </div>
@@ -120,12 +120,12 @@ const HeroSection = () => {
 
         <AnimatedHeroImage />
       </div>
-      <div className="w-full pt-6 flex justify-center items-center">
-        <div className="flex flex-wrap items-center gap-6 pt-14">
+      <div className="flex w-full items-center justify-center pt-4 sm:pt-6">
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-8 sm:gap-4 sm:pt-10 md:gap-6 md:pt-14">
           {skills.map((skill) => (
             <div key={skill.id} className="cta-overlay-shell">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-              <div className="nav-cta cta-overlay-front rounded-lg border-2 flex gap-2 text-black border-black bg-white px-7 hover:bg-[#ffd93d] cursor-pointer py-3 text-md font-semibold">
+              <div className="nav-cta cta-overlay-front flex cursor-pointer gap-2 rounded-lg border-2 border-black bg-white px-4 py-2.5 text-sm font-semibold text-black hover:bg-[#ffd93d] sm:px-6 sm:py-3 sm:text-base">
                 {skill.icon} {skill.title}
               </div>
             </div>

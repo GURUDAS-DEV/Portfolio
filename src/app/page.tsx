@@ -12,26 +12,26 @@ export default function Home() {
   return (
     <>
       <ScrollNavbar />
-      <TopProgressBar/>
-      <div className="flex w-full transition-all duration-150 ease-in-out justify-center bg-gray-300 px-4 py-10">
+      <TopProgressBar />
+      <div className="flex w-full justify-center bg-gray-300 px-2 py-6 transition-all duration-150 ease-in-out sm:px-4 sm:py-8 md:py-10">
         <div className="w-full max-w-[95%] ">
           <main className="home-overlay-shell border-4 border-black bg-white">
             <div className="home-overlay-back absolute inset-0" />
             <div className="home-overlay-front relative">
-              <div className="w-full pt-32" id="Home">
+              <div className="w-full pt-24 sm:pt-28 md:pt-32" id="Home">
                 <HeroSection />
               </div>
               <CrackDivider />
-              <div className="w-full pt-10 " id="About">
+              <div className="w-full pt-8 sm:pt-10" id="About">
                 <About />
               </div>
-              <div className="w-full pt-10" id="Project">
+              <div className="w-full pt-8 sm:pt-10" id="Project">
                 <Skills />
               </div>
-              <div className="w-full pt-10" id="Skills">
+              <div className="w-full pt-8 sm:pt-10" id="Skills">
                 <Education />
               </div>
-              <div className="w-full pt-10" id="GetInTouch">
+              <div className="w-full pt-8 sm:pt-10" id="GetInTouch">
                 <GetInTouch />
               </div>
               <div className="w-full mb-2">

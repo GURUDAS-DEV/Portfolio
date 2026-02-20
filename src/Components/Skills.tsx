@@ -190,34 +190,34 @@ const Skills = () => {
 
   return (
     <div className="w-full h-auto flex mb-7 font-space-grotesk">
-      <div className="flex w-full flex-col gap-8 px-6 md:px-12">
+      <div className="flex w-full flex-col gap-6 px-5 sm:gap-7 sm:px-8 md:gap-8 md:px-12">
         <div className="cta-overlay-shell w-fit">
           <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-          <div className="nav-cta relative inline-flex w-fit rounded-lg border-[3px] border-black bg-[#ffd93d] px-6 py-3 text-5xl text-black font-black leading-none">
+          <div className="nav-cta relative inline-flex w-fit rounded-lg border-[3px] border-black bg-[#ffd93d] px-4 py-2 text-3xl font-black leading-none text-black sm:px-5 sm:py-2.5 sm:text-4xl md:px-6 md:py-3 md:text-5xl">
             <h1>SKILLS</h1>
           </div>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="w-full grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {skillsData.map((section) => (
             <div
               key={section.id}
               className="cta-overlay-shell relative"
             >
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-              <div className="cta-overlay-front relative rounded-lg min-h-100 border-[3px] border-black bg-white overflow-hidden">
+              <div className="cta-overlay-front relative min-h-90 rounded-lg border-[3px] border-black bg-white overflow-hidden sm:min-h-100">
                 <div className="w-full h-3 absolute top-0 left-0" style={{ backgroundColor: section.heroColor }}/>
-                <div className="pt-6 px-6">
+                <div className="px-5 pt-5 sm:px-6 sm:pt-6">
                   <div className="flex items-center gap-3">
                     <span className="flex items-center">{section.icon}</span>
-                    <span className="text-3xl font-black text-black">
+                    <span className="text-2xl font-black text-black sm:text-3xl">
                       {section.title}
                     </span>
                   </div>
                   <div className="mt-4 h-1 w-full bg-black" />
                 </div>
 
-                <div className="mt-5 px-6 pb-6 flex flex-wrap gap-3">
+                <div className="mt-4 flex flex-wrap gap-2 px-5 pb-5 sm:gap-3 sm:px-6 sm:pb-6">
                   {section.skillProps.map((skill) => (
                     <div
                       key={skill.skillId}
@@ -225,11 +225,11 @@ const Skills = () => {
                       style={{ ['--skill-hover-color' as string]: section.heroColor }}
                     >
                       <div className="cta-overlay-back absolute inset-0 rounded-md border-2 border-black bg-black" />
-                      <div className="cta-overlay-front cursor-pointer relative flex items-center gap-2 rounded-md border-2 border-black bg-white px-4 py-4 font-semibold text-black whitespace-nowrap">
+                      <div className="cta-overlay-front relative flex cursor-pointer items-center gap-2 rounded-md border-2 border-black bg-white px-3 py-2.5 text-sm font-semibold text-black whitespace-nowrap sm:px-4 sm:py-3 sm:text-base">
                         <span className="flex items-center justify-center text-lg" >
                           {skill.skillIcon}
                         </span>
-                        <span className="text-lg   leading-tight">{skill.skillName}</span>
+                        <span className="leading-tight sm:text-lg">{skill.skillName}</span>
                       </div>
                     </div>
                   ))}

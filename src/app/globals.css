@@ -72,6 +72,19 @@ body {
   transform: translateY(-10px) rotate(-4deg) scale(1.06);
 }
 
+@media (hover: none) {
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .cta-overlay-shell:hover .cta-overlay-front,
+  .cta-overlay-shell:active .cta-overlay-front,
+  .gb-overlay-shell:hover .gb-overlay-front,
+  .gb-overlay-shell:active .gb-overlay-front {
+    transform: translate(2px, 2px);
+  }
+}
+
 .crack-divider {
   position: relative;
   width: 100%;
@@ -215,5 +228,14 @@ body {
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

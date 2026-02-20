@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 const TopProgressBar = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
-  console.log(`Scroll Percent: ${scrollPercent.toFixed(2)}%`);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -28,29 +27,29 @@ const TopProgressBar = () => {
       window.removeEventListener("resize", updateScrollProgress);
     };
   }, []);
+  const markers = [5, 25, 50, 75, 97];
+
   return (
     <div className="w-screen fixed top-0 left-0 z-50">
       <div className="w-full relative">
-        <div className="h-4 relative z-0 border-[6px] border-t-0 flex justify-between border-black w-full bg-white"></div>
+        <div className="relative z-0 h-3 w-full border-4 border-t-0 border-black bg-white sm:h-4 sm:border-[6px]"></div>
         <div
-          className="z-10 absolute top-0 border-r-8 border-r-black left-0 h-2.75 bg-[#ffd93d]"
+          className="absolute top-0 left-0 z-10 h-2 border-r-4 border-r-black bg-[#ffd93d] sm:h-2.75 sm:border-r-8"
           style={{ width: `${scrollPercent}%` }}
         ></div>
-        <div className="h-5.5 w-5.5 z-20 absolute -top-1 left-[5%] bg-white border flex justify-center items-center border-white rounded-full">
-          <div className="h-4 w-4 border-4 border-black rounded-full bg-[#ffd93d]"></div>
-        </div>
-        <div className="h-5.5 w-5.5  z-20  absolute -top-1 left-[21%] bg-white border flex justify-center items-center border-white rounded-full">
-          <div className="h-4 w-4 border-4 border-black rounded-full bg-[#ffd93d]"></div>
-        </div>
-        <div className="h-5.5 w-5.5  z-20  absolute -top-1 left-[62%] bg-white border flex justify-center items-center border-white rounded-full">
-          <div className="h-4 w-4 border-4 border-black rounded-full bg-[#ffd93d]"></div>
-        </div>
-        <div className="h-5.5 w-5.5  z-20  absolute -top-1 left-[78%] bg-white border flex justify-center items-center border-white rounded-full">
-          <div className="h-4 w-4 border-4 border-black rounded-full bg-[#ffd93d]"></div>
-        </div>
-        <div className="h-5.5 w-5.5  z-20  absolute -top-1 left-[97%] bg-white border flex justify-center items-center border-white rounded-full">
-          <div className="h-4 w-4 border-4 border-black rounded-full bg-[#ffd93d]"></div>
-        </div>
+        {markers.map((point) => (
+          <div
+            key={point}
+            className="absolute -top-0.5 z-20 flex h-4 w-4 items-center justify-center rounded-full border border-white bg-white sm:-top-1 sm:h-5.5 sm:w-5.5"
+            style={{ left: `${point}%`, transform: "translateX(-50%)" }}
+          >
+            <div
+              className={`h-3 w-3 rounded-full border-2 border-black sm:h-4 sm:w-4 sm:border-4 ${
+                scrollPercent >= point ? "bg-[#ffd93d]" : "bg-white"
+              }`}
+            ></div>
+          </div>
+        ))}
       </div>
     </div>
   );
