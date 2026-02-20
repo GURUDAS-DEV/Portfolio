@@ -1,3 +1,4 @@
+import { skillsSection } from "@/utils/skillSet";
 import { AiOutlineDotNet } from "react-icons/ai";
 import { DiNginx, DiSqllite } from "react-icons/di";
 import { FaCode, FaCss3Alt, FaDatabase, FaDocker, FaJava, FaNode, FaPython, FaReact } from "react-icons/fa";
@@ -11,24 +12,12 @@ import {
   RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
-import { SiCplusplus, SiExpress, SiJfrogpipelines, SiMongodb, SiMongoosedotws, SiPostgresql, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
-import { TbBrandOauth, TbPrompt, TbVector } from "react-icons/tb";
+import { SiCplusplus, SiExpress, SiJfrogpipelines, SiLangchain, SiMongodb, SiMongoosedotws, SiPostgresql, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
+import { TbBrandOauth, TbDatabaseCog, TbPrompt, TbVector } from "react-icons/tb";
 import { TiDocumentText } from "react-icons/ti";
-import { VscAzure, VscVscode } from "react-icons/vsc";
+import { VscAzure, VscSymbolInterface, VscVscode } from "react-icons/vsc";
 
-interface skillsSection {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  heroColor: string;
-  skillProps: skillSectionProps[];
-}
 
-interface skillSectionProps {
-  skillId: string;
-  skillName: string;
-  skillIcon: React.ReactNode;
-}
 
 const Skills = () => {
   const skillsData: skillsSection[] = [
@@ -167,33 +156,33 @@ const Skills = () => {
         },
         {
           skillId: "AI2",
-          skillName: "LLM APIs (OpenAI/Anthropic/Cohere)",
+          skillName: "LLM APIs",
           skillIcon: <FaCode />,
         },
         {
           skillId: "AI3",
-          skillName: "Embeddings & vector DBs (Pinecone/Weaviate/Milvus)",
+          skillName: "Embeddings & vector DBs",
           skillIcon: <TbVector />,
         },
         {
           skillId: "AI5",
-          skillName: "Retrieval-augmented generation (RAG)",
+          skillName: "RAG",
           skillIcon: <TiDocumentText />,
         },
         {
           skillId: "AI7",
-          skillName: "Inference optimization & batching",
-          skillIcon: <FaCode />,
+          skillName: "Inference optimization",
+          skillIcon: <VscSymbolInterface />,
         },
         {
           skillId: "AI9",
-          skillName: "Data labeling & dataset prep",
-          skillIcon: <FaCode />,
+          skillName: "Data labeling",
+          skillIcon: <TbDatabaseCog />,
         },
         {
           skillId: "AI10",
-          skillName: "LangChain / orchestration",
-          skillIcon: <FaCode />,
+          skillName: "LangChain",
+          skillIcon: <SiLangchain />,
         },
       ],
     },
@@ -228,19 +217,19 @@ const Skills = () => {
                   <div className="mt-4 h-1 w-full bg-black" />
                 </div>
 
-                <div className="mt-5 px-6 pb-6 grid grid-cols-2 gap-3">
+                <div className="mt-5 px-6 pb-6 flex flex-wrap gap-3">
                   {section.skillProps.map((skill) => (
                     <div
                       key={skill.skillId}
-                      className="cta-overlay-shell skill-chip-hover"
+                      className="cta-overlay-shell skill-chip-hover w-fit"
                       style={{ ['--skill-hover-color' as string]: section.heroColor }}
                     >
                       <div className="cta-overlay-back absolute inset-0 rounded-md border-2 border-black bg-black" />
-                      <div className="cta-overlay-front cursor-pointer relative flex items-center gap-2 rounded-md border-2 border-black bg-white px-3 py-3 font-semibold text-black">
+                      <div className="cta-overlay-front cursor-pointer relative flex items-center gap-2 rounded-md border-2 border-black bg-white px-4 py-4 font-semibold text-black whitespace-nowrap">
                         <span className="flex items-center justify-center text-lg" >
                           {skill.skillIcon}
                         </span>
-                        <span className="truncate text-base leading-tight">{skill.skillName}</span>
+                        <span className="text-lg   leading-tight">{skill.skillName}</span>
                       </div>
                     </div>
                   ))}

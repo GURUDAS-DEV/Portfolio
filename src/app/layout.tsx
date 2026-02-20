@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {  Outfit, Space_Grotesk } from "next/font/google";
+import {  Edu_NSW_ACT_Cursive, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -7,9 +7,9 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-const outfit = Outfit({
+const outfit = Edu_NSW_ACT_Cursive({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-edu-nsw-act-cursive",
 });
 
 export const metadata: Metadata = {

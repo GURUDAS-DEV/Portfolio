@@ -7,7 +7,7 @@ const CrackDivider = () => {
   const [gapSize, setGapSize] = useState(0);
   const isAttached = gapSize === 0;
   const dividerHeight = isAttached ? 30 : 120;
-  const viewBoxHeight = isAttached ? 24 : 70;
+  const viewBoxHeight = isAttached ? 26 : 70;
 
   useEffect(() => {
     const handleScroll = () => {

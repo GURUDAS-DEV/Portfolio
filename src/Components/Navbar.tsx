@@ -20,23 +20,23 @@ const Navbar = () => {
             </div>
 
             <div className="nav-right flex items-center gap-6 text-[18px] font-medium">
-              <Link href="#hero" className="nav-link transition-opacity hover:opacity-90">
+              <Link href="#Home" className="nav-link transition-opacity hover:opacity-90">
                 Home
               </Link>
-              <Link href="#about" className="nav-link transition-opacity hover:opacity-90">
+              <Link href="#About" className="nav-link transition-opacity hover:opacity-90">
                 About
               </Link>
-              <Link href="#experience" className="nav-link transition-opacity hover:opacity-90">
-                Journey
+              <Link href="#Projects" className="nav-link transition-opacity hover:opacity-90">
+                Projects
               </Link>
-              <Link href="#skills" className="nav-link transition-opacity hover:opacity-90">
+              <Link href="#Skills" className="nav-link transition-opacity hover:opacity-90">
                 Skills
               </Link>
 
               <div className="cta-overlay-shell">
                 <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
                 <Link
-                  href="#contact"
+                  href="#GetInTouch"
                   className="nav-cta cta-overlay-front relative flex rounded-lg border-[3px] border-black bg-[#67d6ea] px-5 py-3 text-sm font-black leading-none"
                 >
                   Get in Touch!
