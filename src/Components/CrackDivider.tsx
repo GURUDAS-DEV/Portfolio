@@ -1,28 +1,67 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const CrackDivider = () => {
   const lastScroll = useRef(0);
+  const targetGap = useRef(0);
+  const animationFrame = useRef<number | null>(null);
   const [gapSize, setGapSize] = useState(0);
-  const isAttached = gapSize === 0;
-  const dividerHeight = isAttached ? 30 : 120;
-  const viewBoxHeight = isAttached ? 26 : 70;
+  
+  // Smoothly interpolate gap size
+  const animateGap = useCallback(() => {
+    setGapSize(prev => {
+      const diff = targetGap.current - prev;
+      if (Math.abs(diff) < 0.5) {
+        return targetGap.current;
+      }
+      // Ease towards target (adjust 0.08 for speed - lower = smoother but slower)
+      return prev + diff * 0.08;
+    });
+    animationFrame.current = requestAnimationFrame(animateGap);
+  }, []);
 
   useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    
     const handleScroll = () => {
       const current = window.scrollY;
-      if (current > lastScroll.current + 2) {
-        setGapSize(0); // joined
-      } else if (current < lastScroll.current - 2) {
-        setGapSize(55); // open with gap
+      const delta = current - lastScroll.current;
+      
+      // Clear any pending timeout
+      clearTimeout(scrollTimeout);
+      
+      // Use larger threshold to avoid jitter
+      if (delta > 5) {
+        targetGap.current = 0; // scrolling down - joined
+      } else if (delta < -5) {
+        targetGap.current = 55; // scrolling up - open with gap
       }
+      
       lastScroll.current = current;
+      
+      // Auto-close after user stops scrolling (optional)
+      scrollTimeout = setTimeout(() => {
+        targetGap.current = 0;
+      }, 800);
     };
 
+    // Start the animation loop
+    animationFrame.current = requestAnimationFrame(animateGap);
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+    };
+  }, [animateGap]);
+
+  const isAttached = gapSize < 5;
+  const dividerHeight = 30 + (gapSize * 1.6); // Smooth height transition
+  const viewBoxHeight = 26 + (gapSize * 0.8);
 
   // Top edge points (jagged crack pattern)
   const topPoints: [number, number][] = [
@@ -61,7 +100,6 @@ const CrackDivider = () => {
           stroke="#000"
           strokeWidth="2"
           strokeLinejoin="round"
-          style={{ transition: "d 400ms cubic-bezier(0.22, 1, 0.36, 1)" }}
         />
       </svg>
     </div>

@@ -4,17 +4,17 @@ const Education = () => {
   return (
     <div className="w-full h-auto flex justify-center items-center mb-5 font-space-grotesk">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 px-12 gap-10">
-        <div className="w-full flex flex-col gap-6 justify-center items-center ">
+        <div className="w-full flex flex-col gap-6 justify-center items-center">
           <div className="w-full cta-overlay-shell">
             <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
             <div className=" w-full  bg-[#ffd93d] relative inline-flex rounded-lg border-[3px] border-black px-6 py-3 text-5xl text-black font-black leading-none">
               <h1 className="text-5xl">EDUCATION</h1>
             </div>
           </div>
-          <div className="w-full ">
+          <div className="w-full h-90 md:h-105">
             <div className="w-full cta-overlay-shell">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-              <div className=" w-full  bg-white relative inline-flex flex-col justify-between rounded-lg border-[3px] border-black px-8 py-9  text-black leading-7 ">
+              <div className="w-full h-90 md:h-105 bg-white relative inline-flex flex-col justify-between rounded-lg border-[3px] border-black px-8 py-9 text-black leading-7 overflow-hidden">
                 <div className="flex flex-col gap-8">
                   <div className="flex flex-col leading-7 gap-3">
                     <h1 className="text-3xl font-black">
@@ -37,18 +37,18 @@ const Education = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-6 justify-center items-center ">
+        <div className="w-full flex flex-col gap-6 justify-center items-center">
           <div className="w-full cta-overlay-shell">
             <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
             <div className=" w-full  bg-[#ffd93d] relative inline-flex rounded-lg border-[3px] border-black px-6 py-3 text-5xl text-black font-black leading-none">
               <h1 className="text-5xl">LANGUAGES</h1>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-4 h-90 md:h-105">
             <div className="w-full cta-overlay-shell flex flex-col gap-4">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
 
-              <div className="flex flex-col gap-6 relative rounded-lg border-[3px] border-black bg-white px-8 py-8 text-black leading-7">
+              <div className="flex flex-col gap-6 relative rounded-lg border-[3px] border-black bg-white px-8 py-8 text-black leading-7 h-90 md:h-105 overflow-hidden">
                 {/* English */}
                 <div className="w-full cta-overlay-shell">
                   <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />

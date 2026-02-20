@@ -6,11 +6,13 @@ import Skills from "@/Components/Skills";
 import Education from "@/Components/Education";
 import GetInTouch from "@/Components/GetInTouch";
 import Footer from "@/Components/Footer";
+import TopProgressBar from "@/Components/TopProgressBar";
 
 export default function Home() {
   return (
     <>
       <ScrollNavbar />
+      <TopProgressBar/>
       <div className="flex w-full transition-all duration-150 ease-in-out justify-center bg-gray-300 px-4 py-10">
         <div className="w-full max-w-[95%] ">
           <main className="home-overlay-shell border-4 border-black bg-white">
