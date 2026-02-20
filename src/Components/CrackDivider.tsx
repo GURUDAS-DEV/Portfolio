@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from "react";
 const CrackDivider = () => {
   const lastScroll = useRef(0);
   const [gapSize, setGapSize] = useState(0);
+  const isAttached = gapSize === 0;
+  const dividerHeight = isAttached ? 30 : 120;
+  const viewBoxHeight = isAttached ? 24 : 70;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,10 +48,10 @@ const CrackDivider = () => {
   const fullPath = `${topPath} ${bottomPath} Z`;
 
   return (
-    <div className="crack-divider ">
+    <div className="crack-divider" style={{ height: `${dividerHeight}px` }}>
       <svg
         className="crack-svg"
-        viewBox="0 0 1000 70"
+        viewBox={`0 0 1000 ${viewBoxHeight}`}
         preserveAspectRatio="none"
         aria-hidden="true"
       >

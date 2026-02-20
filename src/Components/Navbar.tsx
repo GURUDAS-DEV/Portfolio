@@ -20,16 +20,16 @@ const Navbar = () => {
             </div>
 
             <div className="nav-right flex items-center gap-6 text-[18px] font-medium">
-              <Link href="#hero" className="nav-link transition-opacity hover:opacity-70">
+              <Link href="#hero" className="nav-link transition-opacity hover:opacity-90">
                 Home
               </Link>
-              <Link href="#about" className="nav-link transition-opacity hover:opacity-70">
+              <Link href="#about" className="nav-link transition-opacity hover:opacity-90">
                 About
               </Link>
-              <Link href="#experience" className="nav-link transition-opacity hover:opacity-70">
+              <Link href="#experience" className="nav-link transition-opacity hover:opacity-90">
                 Journey
               </Link>
-              <Link href="#skills" className="nav-link transition-opacity hover:opacity-70">
+              <Link href="#skills" className="nav-link transition-opacity hover:opacity-90">
                 Skills
               </Link>
 
