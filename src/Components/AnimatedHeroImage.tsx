@@ -2,7 +2,6 @@
 
 import { Code, HardDrive, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const AnimatedHeroImage = () => {
   return (
@@ -42,12 +41,13 @@ const AnimatedHeroImage = () => {
           whileHover={{ rotate: 0 }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
         >
-          <Image
-            src="https://marjoballabani.me/image/avatar-gpt.png"
-            alt="Marjo Ballabani"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/HeroImage.png"
+            alt="Gurudas"
             width={300}
             height={300}
-            className="rounded-xl border-4 border-black bg-[#8ed3f0] object-cover"
+            className="rounded-xl border-4 border-black bg-[#8ed3f0] object-cover h-75 w-75"
           />
         </motion.div>
         <div className="absolute -right-4 top-56 flex h-14 w-14 items-center justify-center rounded-lg border-4 border-black bg-[#ffd24c] shadow-[4px_4px_0_#000] sm:-right-6 sm:top-64 sm:h-16 sm:w-16 md:-right-8 md:top-72 md:h-20 md:w-20">
