@@ -12,8 +12,8 @@ const About = () => {
       if (!highlightsRef.current) return;
       const rect = highlightsRef.current.getBoundingClientRect();
       const viewport = window.innerHeight;
-      const start = viewport * 1.3;
-      const end = viewport * 0.1;
+      const start = viewport * 1.03;
+      const end = viewport * 0.3;
       const raw = (start - rect.top) / (start - end);
       const clamped = Math.min(1, Math.max(0, raw));
       setHighlightProgress(clamped);
@@ -40,7 +40,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto flex mb-7 font-space-grotesk">
+    <div className="w-full h-auto flex  font-space-grotesk">
       <div className="flex w-full flex-col gap-6 px-5 sm:gap-7 sm:px-8 md:gap-8 md:px-12">
         <div className="cta-overlay-shell w-fit">
           <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />

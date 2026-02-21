@@ -7,14 +7,16 @@ import Education from "@/Components/Education";
 import GetInTouch from "@/Components/GetInTouch";
 import Footer from "@/Components/Footer";
 import TopProgressBar from "@/Components/TopProgressBar";
+import Projects from "@/Components/Projects";
+import GithubContribution from "@/Components/GithubContribution";
 
 export default function Home() {
   return (
     <>
-      <ScrollNavbar />
       <TopProgressBar />
-      <div className="flex w-full justify-center bg-gray-300 px-2 py-6 transition-all duration-150 ease-in-out sm:px-4 sm:py-8 md:py-10">
-        <div className="w-full max-w-[95%] ">
+      <ScrollNavbar />
+      <div className="flex w-full justify-center bg-gray-300 px-2 py-8 transition-all duration-150 ease-in-out sm:px-4 sm:py-10 md:py-14">
+        <div className="w-full max-w-[95%]">
           <main className="home-overlay-shell border-4 border-black bg-white">
             <div className="home-overlay-back absolute inset-0" />
             <div className="home-overlay-front relative">
@@ -22,19 +24,25 @@ export default function Home() {
                 <HeroSection />
               </div>
               <CrackDivider />
-              <div className="w-full pt-8 sm:pt-10" id="About">
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="About">
                 <About />
               </div>
-              <div className="w-full pt-8 sm:pt-10" id="Project">
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Project">
+                <Projects />
+              </div>
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Skills">
                 <Skills />
               </div>
-              <div className="w-full pt-8 sm:pt-10" id="Skills">
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Github">
+                <GithubContribution />
+              </div>
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Education">
                 <Education />
               </div>
-              <div className="w-full pt-8 sm:pt-10" id="GetInTouch">
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="GetInTouch">
                 <GetInTouch />
               </div>
-              <div className="w-full mb-2">
+              <div className="w-full mt-4 mb-3">
                 <Footer />
               </div>
             </div>
