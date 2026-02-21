@@ -18,7 +18,7 @@ const DarkModeToggle = () => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const change = () => {
-    const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+    const nextTheme = resolvedTheme === "light" ? "dark" : "light";
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const viewTransitionDocument = document as ViewTransitionDocument;
 
