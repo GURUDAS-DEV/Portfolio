@@ -37,7 +37,7 @@ const TopProgressBar = () => {
   const markers : markerProp[] = [
     {percent : 1, redirectTo : "#Home"},
     {percent : 14, redirectTo : "#About"},
-    {percent : 28, redirectTo : "#Project"},
+    {percent : 24, redirectTo : "#Project"},
     {percent : 43, redirectTo : "#Skills"},
     {percent : 71, redirectTo : "#Github"},
     {percent : 87, redirectTo : "#Education"},

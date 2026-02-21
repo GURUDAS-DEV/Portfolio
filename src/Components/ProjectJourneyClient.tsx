@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/utils/projectsData";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const SLIDE = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
@@ -14,6 +15,7 @@ const SLIDE = {
 export default function ProjectJourneyClient() {
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState(1);
+  const { resolvedTheme } = useTheme();
 
   const go = (next: number) => {
     setDir(next > idx ? 1 : -1);
@@ -31,7 +33,7 @@ export default function ProjectJourneyClient() {
   ].filter((item): item is { label: string; href: string } => Boolean(item.href));
 
   return (
-    <div className="w-full font-space-grotesk text-black">
+    <div className="w-full font-space-grotesk text-black dark:text-white">
       
       <div className="flex w-full border-[3px]  border-black overflow-hidden shadow-[4px_4px_0px_0px_#000]">
         {projects.map((proj, i) => {
@@ -42,7 +44,11 @@ export default function ProjectJourneyClient() {
               onClick={() => go(i)}
               className="relative flex-1 flex items-center justify-center gap-2 py-3 px-2 border-r-[3px] last:border-r-0 border-black transition-all duration-150 focus-visible:outline-none group"
               style={{
-                backgroundColor: isActive ? proj.accent : "#ffffff",
+                backgroundColor: isActive
+                  ? proj.accent
+                  : resolvedTheme === "dark"
+                    ? "#292524"
+                    : "#ffffff",
               }}
             >
               {/* Active underline bar */}
@@ -54,13 +60,19 @@ export default function ProjectJourneyClient() {
               )}
               <span
                 className="text-[11px] font-black tracking-widest text-black/40 group-hover:text-black/70 transition-colors"
-                style={{ color: isActive ? "rgba(0,0,0,0.55)" : undefined }}
+                style={{
+                  color: isActive
+                    ? "rgba(0,0,0,0.55)"
+                    : resolvedTheme === "dark"
+                      ? "rgba(255,255,255,0.7)"
+                      : undefined,
+                }}
               >
                 {proj.num}
               </span>
               <span
                 className="hidden sm:block text-xs font-black uppercase tracking-wider truncate"
-                style={{ color: "#000" }}
+                style={{ color: resolvedTheme === "dark" && !isActive ? "#ffffff" : "#000" }}
               >
                 {proj.title}
               </span>
@@ -117,12 +129,12 @@ export default function ProjectJourneyClient() {
                 {/* Year chip */}
                 <div className="relative inline-block">
                   <div className="absolute inset-0 translate-x-0.75 translate-y-0.75 rounded-sm bg-black" />
-                  <span className="relative inline-block border-[2.5px] border-black bg-white px-3 py-1 text-xs font-black tracking-widest text-black rounded-sm">
+                  <span className="relative inline-block border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-3 py-1 text-xs font-black tracking-widest text-black dark:text-white rounded-sm">
                     {p.year}
                   </span>
                 </div>
                 {/* Role chip */}
-                <span className="text-xs font-bold uppercase tracking-widest text-black/55 border-b-2 border-black/30 pb-0.5">
+                <span className="text-xs font-bold uppercase tracking-widest text-black/55 dark:text-white/70 border-b-2 border-black/30 dark:border-[#a8e6cf]/50 pb-0.5">
                   {p.role}
                 </span>
               </div>
@@ -141,8 +153,8 @@ export default function ProjectJourneyClient() {
                 <div className="flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <div key={t} className="relative inline-block">
-                      <div className="absolute inset-0 translate-x-0.75 translate-y-0.75 bg-black rounded-sm" />
-                      <span className="relative inline-flex items-center border-2 border-black bg-white px-3 py-1.5 text-xs font-black text-black rounded-sm">
+                      <div className="absolute inset-0 translate-x-0.75 translate-y-0.75 bg-black dark:bg-[#a8e6cf] rounded-sm" />
+                        <span className="relative inline-flex items-center border-2 border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-3 py-1.5 text-xs font-black text-black dark:text-white rounded-sm">
                         {t}
                       </span>
                     </div>
@@ -160,8 +172,8 @@ export default function ProjectJourneyClient() {
                     rel="noopener noreferrer"
                     className="relative inline-block group cursor-pointer"
                   >
-                    <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black bg-black rounded-lg" />
-                    <div className="relative flex items-center gap-2 text-black border-[2.5px] border-black bg-white px-5 py-3 rounded-lg font-black text-sm transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
+                    <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf] rounded-lg" />
+                    <div className="relative flex items-center gap-2 text-black dark:text-white border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-5 py-3 rounded-lg font-black text-sm transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
                       {action.label} <ArrowUpRight size={16} strokeWidth={3} />
                     </div>
                   </a>
@@ -170,7 +182,7 @@ export default function ProjectJourneyClient() {
             </div>
 
             {/* â”€â”€ RIGHT: Visual panel â”€â”€ */}
-            <div className="hidden md:flex flex-1 items-center justify-center p-8 border-l-[3px] border-black relative overflow-hidden">
+            <div className="hidden md:flex flex-1 items-center justify-center p-8 border-l-[3px] border-black dark:border-[#a8e6cf] relative overflow-hidden">
               {/* Big ghost number â€” the WOW visual */}
               <span
                 aria-hidden="true"
@@ -188,8 +200,8 @@ export default function ProjectJourneyClient() {
 
               {/* Neo-brutalist "screen" card */}
               <div className="relative w-full max-w-75">
-                <div className="absolute inset-0 translate-x-2 translate-y-2 border-[3px] border-black bg-black rounded-lg" />
-                <div className="relative border-[3px] border-black bg-white rounded-lg overflow-hidden">
+                <div className="absolute inset-0 translate-x-2 translate-y-2 border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf] rounded-lg" />
+                <div className="relative border-[3px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 rounded-lg overflow-hidden">
                   {/* Fake browser chrome */}
                   <div
                     className="flex items-center gap-1.5 px-4 py-3 border-b-[3px] border-black"
@@ -234,13 +246,13 @@ export default function ProjectJourneyClient() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           BOTTOM NAV BAR
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <div className="flex items-center justify-between border-[3px] border-t-0 border-black bg-white px-6 py-4 shadow-[4px_4px_0px_0px_#000]">
+      <div className="flex items-center justify-between border-[3px] border-t-0 border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-6 py-4 shadow-[4px_4px_0px_0px_#000]">
         {/* Prev */}
         <div className="relative inline-block group">
-          <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black bg-black rounded-lg" />
+          <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf] rounded-lg" />
           <button
             onClick={prev}
-            className="relative flex items-center gap-2 border-[2.5px] border-black bg-white px-4 py-2.5 font-black text-sm rounded-lg transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            className="relative flex items-center gap-2 border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-black px-4 py-2.5 font-black text-sm rounded-lg transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
             aria-label="Previous project"
           >
             <ChevronLeft size={18} strokeWidth={3} />
@@ -271,10 +283,10 @@ export default function ProjectJourneyClient() {
 
         {/* Next */}
         <div className="relative inline-block group">
-          <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black bg-black rounded-lg" />
+          <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf] rounded-lg" />
           <button
             onClick={next}
-            className="relative flex items-center gap-2 border-[2.5px] border-black bg-white px-4 py-2.5 font-black text-sm rounded-lg transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            className="relative flex items-center gap-2 border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-black px-4 py-2.5 font-black text-sm rounded-lg transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
             aria-label="Next project"
           >
             <span className="hidden sm:inline">NEXT</span>

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Moon } from "lucide-react";
 import Link from "next/link";
+import DarkModeToggle from "./DarkModeToggle";
 
 const ScrollNavbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -39,32 +39,35 @@ const ScrollNavbar = () => {
       }`}
     >
       <div className="nav-overlay-shell mx-auto w-full max-w-375">
-        <div className="nav-overlay-back absolute inset-0 border-4 border-black bg-black" />
+        <div className="nav-overlay-back absolute inset-0 border-4 border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
 
-        <div className="nav-overlay-front relative border-4 border-black bg-[#ffd93d] px-3 py-2 font-space-grotesk font-light text-black sm:px-4 sm:py-3 md:px-5 lg:px-6">
+        <div className="nav-overlay-front relative border-4 border-black dark:border-[#a8e6cf] bg-[#ffd93d] dark:bg-black px-3 py-2 font-space-grotesk font-light text-black dark:text-white sm:px-4 sm:py-3 md:px-5 lg:px-6">
           <nav className="navbar flex w-full items-center justify-between gap-3">
             <div className="gb-overlay-shell">
-              <div className="gb-overlay-back absolute inset-0 rounded-lg border-4 border-black bg-black" />
+              <div className="gb-overlay-back absolute inset-0 rounded-lg border-4 border-black bg-black dark:bg-[#a8e6cf]" />
               <Link
                 href="#"
-                className="nav-brand gb-overlay-front relative flex rounded-lg border-4 border-black bg-[#66dff4] px-3 py-1.5 text-xl font-black leading-none tracking-tight sm:px-4 sm:py-2 sm:text-2xl lg:text-[28px]"
+                className="nav-brand gb-overlay-front relative flex rounded-lg border-4 border-black dark:border-[#a8e6cf] bg-[#67d6ea] px-3 py-1.5 text-xl font-black leading-none tracking-tight sm:px-4 sm:py-2 sm:text-2xl lg:text-[28px]"
               >
                 GB
               </Link>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="cta-overlay-shell lg:hidden"
-              aria-label="Toggle navigation menu"
-              aria-expanded={isMenuOpen}
-            >
-              <span className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-              <span className="nav-cta cta-overlay-front relative flex rounded-lg border-[3px] border-black bg-[#67d6ea] p-2 leading-none">
-                {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-              </span>
-            </button>
+            <div className="flex items-center gap-2 lg:hidden">
+              <DarkModeToggle />
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className="cta-overlay-shell"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMenuOpen}
+              >
+                <span className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
+                <span className="nav-cta cta-overlay-front relative flex rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-[#67d6ea] p-2 leading-none dark:text-black">
+                  {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+                </span>
+              </button>
+            </div>
 
             <div className="nav-right hidden items-center gap-5 text-base font-medium lg:flex lg:text-[18px]">
               <Link
@@ -93,31 +96,23 @@ const ScrollNavbar = () => {
               </Link>
 
               <div className="cta-overlay-shell">
-                <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
+                <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
                 <Link
                   href="#GetInTouch"
-                  className="nav-cta cta-overlay-front relative flex rounded-lg border-[3px] border-black bg-[#67d6ea] px-5 py-3 text-sm font-black leading-none"
+                  className="nav-cta cta-overlay-front relative flex rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-[#67d6ea] px-5 py-3 text-sm font-black leading-none dark:text-black"
                 >
                   Get in Touch!
                 </Link>
               </div>
 
-              <div className="cta-overlay-shell">
-                <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-                <button
-                  id="theme-toggle"
-                  className="nav-cta cta-overlay-front cursor-pointer theme-toggle-nav rounded-lg border-[3px] border-black bg-[#67d6ea] p-2.5 leading-none"
-                  aria-label="Toggle theme"
-                  type="button"
-                >
-                  <Moon size={20} />
-                </button>
+              <div>
+                <DarkModeToggle/>
               </div>
             </div>
           </nav>
 
           {isMenuOpen && (
-            <div className="mt-3 flex flex-col gap-2 border-t-4 border-black pt-3 lg:hidden">
+            <div className="mt-3 flex flex-col gap-2 border-t-4 border-black dark:border-[#a8e6cf] pt-3 lg:hidden">
               <Link href="#Home" className="px-2 py-1 text-base font-semibold" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
@@ -132,7 +127,7 @@ const ScrollNavbar = () => {
               </Link>
               <Link
                 href="#GetInTouch"
-                className="mt-1 w-fit rounded-lg border-[3px] border-black bg-[#67d6ea] px-4 py-2 text-sm font-black"
+                className="mt-1 w-fit rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-[#67d6ea] px-4 py-2 text-sm font-black dark:text-black"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get in Touch!

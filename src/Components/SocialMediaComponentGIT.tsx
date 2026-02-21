@@ -53,16 +53,16 @@ const SocialMediaComponentGIT = () => {
           >
             {/* Tape effect at the top */}
             <div
-              className="absolute -top-3 right-6 h-8 w-20 rotate-12 rounded-sm border-2 border-black z-10 sm:-top-4 sm:right-8 sm:h-10 sm:w-24"
+              className="absolute -top-3 right-6 h-8 w-20 rotate-12 rounded-sm border-2 border-black dark:border-[#a8e6cf] z-10 sm:-top-4 sm:right-8 sm:h-10 sm:w-24"
               style={{ backgroundColor: card.tapeColor, opacity: 0.7 }}
             />
 
             {/* Card shadow */}
-            <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-lg border-4 border-black bg-black" />
+            <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-lg border-4 border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
 
             {/* Card content */}
             <div
-              className="relative flex h-44 w-72 flex-col items-center justify-center gap-4 rounded-lg border-4 border-black shadow-lg sm:h-48 sm:w-75 sm:gap-5 md:h-54 md:w-82.5 md:gap-6"
+              className="relative flex h-44 w-72 flex-col items-center justify-center gap-4 rounded-lg border-4 border-black dark:border-[#a8e6cf] shadow-lg sm:h-48 sm:w-75 sm:gap-5 md:h-54 md:w-82.5 md:gap-6"
               style={{ backgroundColor: card.bgColor }}
             >
               <div className="text-black ">{card.icon}</div>

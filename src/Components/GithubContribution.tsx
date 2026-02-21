@@ -128,49 +128,49 @@ const GithubContribution = async () => {
   }
 
   return (
-    <section className="w-full flex flex-col justify-center items-center font-space-grotesk">
+    <section className="w-full flex flex-col justify-center items-center font-space-grotesk text-black dark:text-white">
       <div className="w-full flex flex-col gap-6 px-5 py-4 sm:gap-7 sm:px-8 sm:py-5 md:gap-8 md:px-12">
         {/* ── heading ── */}
         <div className="cta-overlay-shell w-fit">
-          <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-          <div className="nav-cta relative inline-flex w-fit rounded-lg border-[3px] border-black bg-[#ffd93d] px-4 py-2 text-3xl font-black leading-none text-black sm:px-5 sm:py-2.5 sm:text-4xl md:px-6 md:py-3 md:text-5xl">
+          <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
+          <div className="nav-cta relative inline-flex w-fit rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-[#ffd93d] dark:bg-[#67d6ea] px-4 py-2 text-3xl font-black leading-none text-black sm:px-5 sm:py-2.5 sm:text-4xl md:px-6 md:py-3 md:text-5xl">
             <h1>GITHUB CONTRIBUTIONS</h1>
           </div>
         </div>
 
         {/* ── outer card ── */}
         <div className="cta-overlay-shell cta-overlay-static w-full">
-          <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black bg-black" />
-          <div className="cta-overlay-front relative w-full rounded-lg border-[3px] border-black bg-white p-4 sm:p-6 md:p-8">
+          <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
+          <div className="cta-overlay-front relative w-full rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 p-4 sm:p-6 md:p-8">
 
             {/* ── profile row ── */}
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
-                  <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-xl border-[3px] border-black bg-black" />
+                  <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-xl border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={user?.avatar_url ?? `https://github.com/${USERNAME}.png`}
                     alt={`${USERNAME} avatar`}
                     width={88}
                     height={88}
-                    className="relative h-20 w-20 rounded-xl border-[3px] border-black object-cover sm:h-22 sm:w-22"
+                    className="relative h-20 w-20 rounded-xl border-[3px] border-black dark:border-[#a8e6cf] object-cover sm:h-22 sm:w-22"
                   />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-black text-black sm:text-3xl leading-none">
+                  <h2 className="text-2xl font-black text-black dark:text-white sm:text-3xl leading-none">
                     {user?.name ?? USERNAME}
                   </h2>
                   <a
                     href={`https://github.com/${USERNAME}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-0.5 block text-sm font-bold tracking-wide text-black/60 underline-offset-2 hover:underline"
+                    className="mt-0.5 block text-sm font-bold tracking-wide text-black/60 dark:text-white/70 underline-offset-2 hover:underline"
                   >
                     @{USERNAME}
                   </a>
                   {user?.bio && (
-                    <p className="mt-1.5 max-w-sm text-sm font-medium text-black/70 leading-snug">{user.bio}</p>
+                    <p className="mt-1.5 max-w-sm text-sm font-medium text-black/70 dark:text-white/80 leading-snug">{user.bio}</p>
                   )}
                 </div>
               </div>
@@ -183,9 +183,9 @@ const GithubContribution = async () => {
                   { label: "🔀 Forks", value: fmt(totalForks), bg: "#ff6b9d" },
                 ].map((badge) => (
                   <div key={badge.label} className="relative">
-                    <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-lg border-2 border-black bg-black" />
+                    <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-lg border-2 border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
                     <div
-                      className="relative rounded-lg border-2 border-black px-3 py-1.5 text-xs font-black text-black"
+                      className="relative rounded-lg border-2 border-black dark:border-[#a8e6cf] px-3 py-1.5 text-xs font-black text-black"
                       style={{ backgroundColor: badge.bg }}
                     >
                       {badge.label} · {badge.value}
@@ -199,9 +199,9 @@ const GithubContribution = async () => {
             <div className="mt-6 grid grid-cols-3 gap-2.5 sm:grid-cols-6">
               {statCards.map((item) => (
                 <div key={item.label} className="relative">
-                  <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-lg border-2 border-black bg-black" />
+                  <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-lg border-2 border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
                   <div
-                    className="relative rounded-lg border-2 border-black px-3 py-2.5 text-center"
+                    className="relative rounded-lg border-2 border-black dark:border-[#a8e6cf] px-3 py-2.5 text-center"
                     style={{ backgroundColor: item.accent }}
                   >
                     <p className="text-[10px] font-black uppercase tracking-widest text-black/60 leading-none">{item.label}</p>
@@ -213,30 +213,30 @@ const GithubContribution = async () => {
 
             {/* ── contribution heatmap ── */}
             <div className="mt-7 relative">
-              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-xl border-[3px] border-black bg-black" />
-              <div className="relative rounded-xl border-[3px] border-black bg-[#fafafa] p-5 sm:p-7">
+              <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-xl border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
+              <div className="relative rounded-xl border-[3px] border-black dark:border-[#a8e6cf] bg-[#fafafa] dark:bg-stone-900 p-5 sm:p-7">
 
                 {/* header */}
                 <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-sm font-black uppercase tracking-widest text-black">
+                    <p className="text-sm font-black uppercase tracking-widest text-black dark:text-white">
                       Contribution Activity 2026
                     </p>
-                    <p className="mt-0.5 text-xs font-bold text-black/50">
+                    <p className="mt-0.5 text-xs font-bold text-black/50 dark:text-white/60">
                       {totalContributions} contributions this year
                     </p>
                   </div>
                   {/* legend */}
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/40">Less</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-black/40 dark:text-white/50">Less</span>
                     {[0, 1, 2, 3, 4].map((lvl) => (
                       <div
                         key={lvl}
-                        className="h-4 w-4 rounded border border-black/15"
+                        className="h-4 w-4 rounded border border-black/15 dark:border-white/20"
                         style={{ backgroundColor: LEVEL_COLORS[lvl] }}
                       />
                     ))}
-                    <span className="text-[10px] font-black uppercase tracking-widest text-black/40">More</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-black/40 dark:text-white/50">More</span>
                   </div>
                 </div>
 
@@ -248,7 +248,7 @@ const GithubContribution = async () => {
                         {DAY_LABELS.map((d, i) => (
                           <span
                             key={d}
-                            className="h-4 w-7 text-[9px] font-black uppercase tracking-wide text-black/35 leading-none flex items-center justify-end"
+                            className="h-4 w-7 text-[9px] font-black uppercase tracking-wide text-black/35 dark:text-white/40 leading-none flex items-center justify-end"
                             style={{ visibility: i % 2 !== 0 ? "visible" : "hidden" }}
                           >
                             {d}
@@ -265,7 +265,7 @@ const GithubContribution = async () => {
                             return (
                               <div
                                 key={wi}
-                                className="w-4 shrink-0 text-[9px] font-black text-black/50 leading-none whitespace-nowrap overflow-visible"
+                                className="w-4 shrink-0 text-[9px] font-black text-black/50 dark:text-white/60 leading-none whitespace-nowrap overflow-visible"
                               >
                                 {label ?? ""}
                               </div>
@@ -281,7 +281,7 @@ const GithubContribution = async () => {
                                 <div
                                   key={di}
                                   title={day ? `${day.date} · ${day.count} contribution${day.count !== 1 ? "s" : ""}` : ""}
-                                  className="h-4 w-4 rounded-sm border border-black/10 transition-all duration-100 hover:scale-125 hover:shadow-sm hover:border-black/30 cursor-default"
+                                  className="h-4 w-4 rounded-sm border border-black/10 dark:border-white/20 transition-all duration-100 hover:scale-125 hover:shadow-sm hover:border-black/30 dark:hover:border-white/40 cursor-default"
                                   style={{
                                     backgroundColor: day ? LEVEL_COLORS[day.level] : "transparent",
                                     borderColor: day && day.level > 0 ? "rgba(0,0,0,0.20)" : "rgba(0,0,0,0.07)",
@@ -295,8 +295,8 @@ const GithubContribution = async () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="flex h-36 items-center justify-center rounded-lg border-2 border-dashed border-black/20 bg-white">
-                    <p className="text-sm font-bold text-black/40">Contribution data loading…</p>
+                  <div className="flex h-36 items-center justify-center rounded-lg border-2 border-dashed border-black/20 dark:border-white/30 bg-white dark:bg-stone-800">
+                    <p className="text-sm font-bold text-black/40 dark:text-white/60">Contribution data loading…</p>
                   </div>
                 )}
 
@@ -309,9 +309,9 @@ const GithubContribution = async () => {
                     { label: "Peak Day",       value: `${Math.max(...contributions.map((d) => d.count), 0)}`, unit: "commits", bg: "#66dff4" },
                   ].map((stat) => (
                     <div key={stat.label} className="relative">
-                      <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-xl border-2 border-black bg-black" />
+                      <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-xl border-2 border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
                       <div
-                        className="relative rounded-xl border-2 border-black px-4 py-3"
+                        className="relative rounded-xl border-2 border-black dark:border-[#a8e6cf] px-4 py-3"
                         style={{ backgroundColor: stat.bg }}
                       >
                         <p className="text-[9px] font-black uppercase tracking-widest text-black/50 leading-none">{stat.label}</p>
