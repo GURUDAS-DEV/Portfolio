@@ -9,16 +9,25 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-export const metadata: Metadata = {
-  title: "Gurudas Bhardwaj - Software Developer Portfolio",
-  description: "My Portfolio website, showcases my strength, skills and projects as a software developer. Built using Next.js, Tailwind CSS, and React Icons. This portfolio highlights my expertise in frontend and backend development, demonstrating my ability to create dynamic and responsive web applications. Explore my projects, skills, and experience to see how I can contribute to your next software development endeavor - GURUDAS BHARDWAJ",
-  authors : [
-    {
-      name : "Gurudas Bhardwaj",
-      url : "https://linkedin.com/in/gurudas-bhardwaj-9b1a7920b/"
-    }
-  ]
+export const metadata : Metadata = {
+  title: "Gurudas Bhardwaj - Portfolio",
+  description: "Portfolio built with Next.js",
+  openGraph: {
+    title: "Gurudas Bhardwaj - Portfolio",
+    description: "Full-stack developer portfolio built with Next.js, This showcases my projects, skills, and experience in Software Development Field.",
+    url: "https://portfolio-sand-seven-50.vercel.app",
+    siteName: "Gurudas Bhardwaj - Portfolio",
+    images: [
+      {
+        url: "https://portfolio-sand-seven-50.vercel.app/Preview.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
 };
+
 
 export default function RootLayout({
   children,
