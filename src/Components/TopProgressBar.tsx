@@ -37,7 +37,7 @@ const TopProgressBar = () => {
   const markers : markerProp[] = [
     {percent : 1, redirectTo : "#Home"},
     {percent : 14, redirectTo : "#About"},
-    {percent : 24, redirectTo : "#Project"},
+    {percent : 24, redirectTo : "#Projects"},
     {percent : 43, redirectTo : "#Skills"},
     {percent : 71, redirectTo : "#Github"},
     {percent : 87, redirectTo : "#Education"},
@@ -46,7 +46,7 @@ const TopProgressBar = () => {
   ];
 
   return (
-    <div className="w-screen fixed top-0 left-0 z-[100]">
+    <div className="w-screen fixed top-0 left-0 z-100">
       <div className="w-full relative">
         <div className="relative z-0 h-3 w-full border-4 border-t-0 border-black bg-white sm:h-4 sm:border-[6px]"></div>
         <div

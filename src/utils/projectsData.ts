@@ -43,6 +43,19 @@ export const projects: Project[] = [
   {
     id: 3,
     num: "03",
+    title: "Invoice IQ",
+    year: "2024",
+    role: "Smart Invoice Management System",
+    description:
+      "Invoice IQ is an AI-powered purchase intelligence platform that helps users track and analyze their purchases from suppliers. Users can add deliveries through manual entry, invoice photos (OCR), or natural language prompts, and the system automatically organizes the data, tracks spending, and detects price changes over time.",
+    tech: ["Next.js", "Node.js", "Typescript", "MongoDB", "Redis", "OCR APIs", "AI APIs", "Rate Limiting"],
+    accent: "#66dff4",
+    github : "https://github.com/GURUDAS-DEV/Invoice-IQ",
+    link : "https://invoiceiq-two.vercel.app/",
+  },
+  {
+    id: 4,
+    num: "04",
     title: "Quizify",
     year: "2025",
     role: "AI Powered Quiz Generator",
@@ -53,18 +66,5 @@ export const projects: Project[] = [
     link : "https://quizifyai.me",
     github : "https://github.com/GURUDAS-DEV/AI-Based-Quiz-Builder-Quizfy-",
     demo : "https://www.linkedin.com/feed/update/urn:li:activity:7398266714838310912/"
-  },
-  {
-    id: 4,
-    num: "04",
-    title: "Ecommerce",
-    year: "2024",
-    role: "Static Ecommerce Storefront",
-    description:
-      "My First deployed Project, A Static Ecommerce Storefront built with React.js and Tailwind CSS. It features a clean design, responsive layout, and smooth animations. It was a great learning experience that laid the foundation for my journey into full-stack development.",
-    tech: ["React.js", "Javascript", "Tailwind CSS", "Framer Motion"],
-    accent: "#66dff4",
-    github : "https://github.com/GURUDAS-DEV/E-Commerce-Website",
-    link : "https://e-commerce-website-black-six.vercel.app/",
   },
 ];

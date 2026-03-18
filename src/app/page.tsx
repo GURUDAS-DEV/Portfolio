@@ -27,7 +27,7 @@ export default function Home() {
               <div className="w-full pt-12 sm:pt-14 md:pt-16" id="About">
                 <About />
               </div>
-              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Project">
+              <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Projects">
                 <Projects />
               </div>
               <div className="w-full pt-12 sm:pt-14 md:pt-16" id="Skills">
