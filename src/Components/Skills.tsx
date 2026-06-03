@@ -2,6 +2,7 @@ import { skillsSection } from "@/utils/skillSet";
 import { AiOutlineDotNet } from "react-icons/ai";
 import { DiNginx, DiSqllite } from "react-icons/di";
 import { FaCode, FaCss3Alt, FaDatabase, FaDocker, FaJava, FaNode, FaPython, FaReact } from "react-icons/fa";
+import { FaAws } from "react-icons/fa6";
 import { GoContainer, GoCopilot } from "react-icons/go";
 import { GrGraphQl, GrUserWorker } from "react-icons/gr";
 import { IoLogoJavascript } from "react-icons/io";
@@ -12,8 +13,8 @@ import {
   RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
-import { SiCplusplus, SiExpress, SiJfrogpipelines, SiLangchain, SiMongodb, SiMongoosedotws, SiPostgresql, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
-import { TbBrandOauth, TbDatabaseCog, TbPrompt, TbVector } from "react-icons/tb";
+import { SiAwslambda, SiCplusplus, SiExpress, SiJfrogpipelines, SiLangchain, SiMongodb, SiMongoosedotws, SiPostgresql, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
+import { TbBrandOauth, TbBrandReactNative, TbDatabaseCog, TbPrompt, TbVector } from "react-icons/tb";
 import { TiDocumentText } from "react-icons/ti";
 import { VscAzure, VscSymbolInterface, VscVscode } from "react-icons/vsc";
 
@@ -33,16 +34,17 @@ const Skills = () => {
           skillIcon: <RiNextjsFill size={20} />,
         },
         { skillId: "S2", skillName: "React.js", skillIcon: <FaReact /> },
-        { skillId: "S3", skillName: "Redux.js", skillIcon: <SiRedux /> },
-        { skillId: "S4", skillName: "Zustand", skillIcon: <RiBearSmileLine /> },
-        { skillId: "S5", skillName: "Shadcn UI", skillIcon: <SiShadcnui /> },
+        { skillId: "S3", skillName: "React Native", skillIcon: <TbBrandReactNative /> },
+        { skillId: "S4", skillName: "Redux.js", skillIcon: <SiRedux /> },
+        { skillId: "S5", skillName: "Zustand", skillIcon: <RiBearSmileLine /> },
+        { skillId: "S6", skillName: "Shadcn UI", skillIcon: <SiShadcnui /> },
         {
-          skillId: "S6",
+          skillId: "S7",
           skillName: "Tailwind CSS",
           skillIcon: <RiTailwindCssFill />,
         },
         {
-          skillId: "S7",
+          skillId: "S8",
           skillName: "CSS",
           skillIcon: <FaCss3Alt />,
         },
@@ -110,15 +112,16 @@ const Skills = () => {
       heroColor: "#ffd93d",
       skillProps: [
         { skillId: "DO1", skillName: "Docker", skillIcon: <FaDocker /> },
+        { skillId: "DO3", skillName: "AWS", skillIcon: <FaAws /> },
+        { skillId: "DO4", skillName: "AWS Lambda", skillIcon: <SiAwslambda /> },
         { skillId: "DO2", skillName: "CI/CD", skillIcon: <SiJfrogpipelines /> },
-        { skillId: "DO3", skillName: "Azure", skillIcon: <VscAzure /> },
         {
-          skillId: "DO4",
+          skillId: "DO5",
           skillName: "Application Deployment",
           skillIcon: <MdOutlineSettingsApplications />,
         },
         {
-          skillId: "DO5",
+          skillId: "DO6",
           skillName: "Containerization",
           skillIcon: <GoContainer />,
         },
@@ -206,7 +209,7 @@ const Skills = () => {
             >
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
               <div className="cta-overlay-front relative min-h-90 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 overflow-hidden sm:min-h-100">
-                <div className="w-full h-3 absolute top-0 left-0" style={{ backgroundColor: section.heroColor }}/>
+                <div className="w-full h-3 absolute top-0 left-0" style={{ backgroundColor: section.heroColor }} />
                 <div className="px-5 pt-5 sm:px-6 sm:pt-6">
                   <div className="flex items-center gap-3">
                     <span className="flex items-center">{section.icon}</span>
