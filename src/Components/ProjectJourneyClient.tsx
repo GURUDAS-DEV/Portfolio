@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/utils/projectsData";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
-import { useTheme } from "next-themes";
+import { playMechanicalClick } from "@/utils/sound";
 
 const SLIDE = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
@@ -15,9 +15,9 @@ const SLIDE = {
 export default function ProjectJourneyClient() {
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState(1);
-  const { resolvedTheme } = useTheme();
 
   const go = (next: number) => {
+    playMechanicalClick();
     setDir(next > idx ? 1 : -1);
     setIdx(next);
   };
@@ -42,13 +42,9 @@ export default function ProjectJourneyClient() {
             <button
               key={proj.id}
               onClick={() => go(i)}
-              className="relative min-w-28 sm:min-w-0 flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 px-2 border-r-[3px] last:border-r-0 border-black transition-all duration-150 focus-visible:outline-none group"
+              className="relative min-w-28 sm:min-w-0 flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 px-2 border-r-[3px] last:border-r-0 border-black transition-colors duration-200 focus-visible:outline-none group bg-white dark:bg-stone-800"
               style={{
-                backgroundColor: isActive
-                  ? proj.accent
-                  : resolvedTheme === "dark"
-                    ? "#292524"
-                    : "#ffffff",
+                backgroundColor: isActive ? proj.accent : undefined,
               }}
             >
               {/* Active underline bar */}
@@ -59,20 +55,20 @@ export default function ProjectJourneyClient() {
                 />
               )}
               <span
-                className="text-[11px] font-black tracking-widest text-black/40 group-hover:text-black/70 transition-colors"
-                style={{
-                  color: isActive
-                    ? "rgba(0,0,0,0.55)"
-                    : resolvedTheme === "dark"
-                      ? "rgba(255,255,255,0.7)"
-                      : undefined,
-                }}
+                className={`text-[11px] font-black tracking-widest transition-colors ${
+                  isActive
+                    ? "text-black/60"
+                    : "text-black/40 dark:text-white/70 group-hover:text-black/80 dark:group-hover:text-white"
+                }`}
               >
                 {proj.num}
               </span>
               <span
-                className="hidden sm:block text-xs font-black uppercase tracking-wider truncate"
-                style={{ color: resolvedTheme === "dark" && !isActive ? "#ffffff" : "#000" }}
+                className={`hidden sm:block text-xs font-black uppercase tracking-wider truncate transition-colors ${
+                  isActive
+                    ? "text-black"
+                    : "text-black dark:text-white"
+                }`}
               >
                 {proj.title}
               </span>
@@ -85,10 +81,9 @@ export default function ProjectJourneyClient() {
           MAIN STAGE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <div
-        className="relative w-full border-[3px] border-t-0 border-black overflow-hidden"
-        style={{ minHeight: "clamp(360px, 68vh, 520px)" }}
+        className="relative w-full border-[3px] border-t-0 border-black overflow-hidden h-[580px] sm:h-[540px] md:h-[500px]"
       >
-        {/* Accent color background fill â€” full panel */}
+        {/* Accent color background fill — full panel */}
         <motion.div
           key={`bg-${p.id}`}
           initial={{ opacity: 0 }}
@@ -110,7 +105,7 @@ export default function ProjectJourneyClient() {
           aria-hidden="true"
         />
 
-        {/* â”€â”€ Animated content â”€â”€ */}
+        {/* ── Animated content ── */}
         <AnimatePresence mode="wait" custom={dir}>
           <motion.div
             key={p.id}
@@ -120,12 +115,12 @@ export default function ProjectJourneyClient() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative z-10 flex flex-col md:flex-row min-h-90 md:min-h-105"
+            className="absolute inset-0 z-10 flex flex-col md:flex-row h-full w-full"
           >
-            {/* â”€â”€ LEFT: Text content â”€â”€ */}
-            <div className="flex flex-col justify-between p-5 sm:p-7 md:p-10 w-full md:w-[55%]">
+            {/* ── LEFT: Text content ── */}
+            <div className="flex flex-col justify-between p-5 sm:p-7 md:p-8 w-full md:w-[55%] h-full overflow-y-auto">
               {/* Top meta row */}
-              <div className="flex flex-wrap items-center gap-3 mb-5 sm:mb-6">
+              <div className="flex flex-wrap items-center gap-3 mb-3 sm:mb-4">
                 {/* Year chip */}
                 <div className="relative inline-block">
                   <div className="absolute inset-0 translate-x-0.75 translate-y-0.75 rounded-sm bg-black" />
@@ -140,21 +135,21 @@ export default function ProjectJourneyClient() {
               </div>
 
               {/* Giant project title */}
-              <div className="flex-1 flex flex-col justify-center">
-                <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight text-black mb-5 sm:mb-6 uppercase wrap-break-word">
+              <div className="flex-1 flex flex-col justify-center my-auto">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-none tracking-tight text-black mb-3 sm:mb-4 uppercase wrap-break-word">
                   {p.title}
                 </h2>
 
-                <p className="text-sm sm:text-base leading-relaxed text-black/70 max-w-none sm:max-w-sm mb-6 sm:mb-8 font-medium">
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed text-black/70 max-w-none sm:max-w-md mb-4 sm:mb-5 font-medium">
                   {p.description}
                 </p>
 
                 {/* Tech pills */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {p.tech.map((t) => (
                     <div key={t} className="relative inline-block">
                       <div className="absolute inset-0 translate-x-0.75 translate-y-0.75 bg-black dark:bg-[#a8e6cf] rounded-sm" />
-                        <span className="relative inline-flex items-center border-2 border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-3 py-1.5 text-xs font-black text-black dark:text-white rounded-sm">
+                      <span className="relative inline-flex items-center border-2 border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-2.5 py-1 text-[11px] sm:text-xs font-black text-black dark:text-white rounded-sm">
                         {t}
                       </span>
                     </div>
@@ -163,17 +158,18 @@ export default function ProjectJourneyClient() {
               </div>
 
               {/* View project link */}
-              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
+              <div className="mt-4 sm:mt-6 flex flex-wrap gap-2.5 sm:gap-3">
                 {actionButtons.map((action) => (
                   <a
                     key={action.label}
                     href={action.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => playMechanicalClick()}
                     className="relative inline-block group cursor-pointer w-full sm:w-auto"
                   >
                     <div className="absolute inset-0 translate-x-1 translate-y-1 border-[2.5px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf] rounded-lg" />
-                    <div className="relative flex items-center justify-center gap-2 text-black dark:text-white border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-5 py-3 rounded-lg font-black text-sm transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
+                    <div className="relative flex items-center justify-center gap-2 text-black dark:text-white border-[2.5px] border-black dark:border-[#a8e6cf] bg-white dark:bg-stone-800 px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg font-black text-xs sm:text-sm transition-transform duration-150 group-hover:translate-x-0.5 group-hover:translate-y-0.5">
                       {action.label} <ArrowUpRight size={16} strokeWidth={3} />
                     </div>
                   </a>
@@ -181,9 +177,9 @@ export default function ProjectJourneyClient() {
               </div>
             </div>
 
-            {/* â”€â”€ RIGHT: Visual panel â”€â”€ */}
-            <div className="hidden md:flex flex-1 items-center justify-center p-8 border-l-[3px] border-black dark:border-[#a8e6cf] relative overflow-hidden">
-              {/* Big ghost number â€” the WOW visual */}
+            {/* ── RIGHT: Visual panel ── */}
+            <div className="hidden md:flex flex-1 items-center justify-center p-8 border-l-[3px] border-black dark:border-[#a8e6cf] relative overflow-hidden h-full">
+              {/* Big ghost number — the WOW visual */}
               <span
                 aria-hidden="true"
                 className="absolute select-none font-black leading-none text-black pointer-events-none"

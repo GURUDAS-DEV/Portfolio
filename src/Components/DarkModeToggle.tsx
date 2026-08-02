@@ -4,6 +4,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRef } from "react";
 import { flushSync } from "react-dom";
+import { playMechanicalClick } from "@/utils/sound";
 
 type ThemeTransition = {
   ready: Promise<void>;
@@ -18,6 +19,7 @@ const DarkModeToggle = () => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const change = () => {
+    playMechanicalClick();
     const nextTheme = resolvedTheme === "light" ? "dark" : "light";
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const viewTransitionDocument = document as ViewTransitionDocument;
@@ -49,34 +51,19 @@ const DarkModeToggle = () => {
     transition.ready.then(() => {
       document.documentElement.animate(
         {
-          opacity: [1, 0.75],
-          transform: ["scale(1)", "scale(0.985)"],
-        },
-        {
-          duration: 420,
-          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          pseudoElement: "::view-transition-old(root)",
-        },
-      );
-
-      document.documentElement.animate(
-        {
           clipPath: [
             `circle(0px at ${x}px ${y}px)`,
             `circle(${endRadius}px at ${x}px ${y}px)`,
           ],
-          opacity: [0.85, 1],
-          transform: ["scale(1.015)", "scale(1)"],
         },
         {
-          duration: 520,
+          duration: 480,
           easing: "cubic-bezier(0.22, 1, 0.36, 1)",
           pseudoElement: "::view-transition-new(root)",
         },
       );
     });
   };
-  
 
   return (
     <div className="cta-overlay-shell">

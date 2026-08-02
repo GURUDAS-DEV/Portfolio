@@ -7,7 +7,7 @@ import { SiDotnet, SiLeetcode, SiTypescript } from "react-icons/si";
 import AnimatedHeroImage from "./AnimatedHeroImage";
 
 interface skillList {
-  id : string;
+  id: string;
   title: string;
   icon: React.ReactNode;
 }
@@ -15,37 +15,37 @@ interface skillList {
 const HeroSection = () => {
   const skills: skillList[] = [
     {
-        id : "1",
+      id: "1",
       title: "Node.js",
       icon: <IoLogoNodejs size={20} />,
     },
     {
-        id : "2",
+      id: "2",
       title: "Dot Net",
       icon: <SiDotnet size={20} />,
     },
     {
-        id : "3",
+      id: "3",
       title: "Next.js",
       icon: <RiNextjsLine size={20} />,
     },
     {
-        id : "4",
+      id: "4",
       title: "React.js",
       icon: <DiReact size={20} />,
     },
     {
-        id : "5",
+      id: "5",
       title: "C Sharp",
       icon: <SiDotnet size={20} />,
     },
     {
-        id : '6',
+      id: '6',
       title: "Typescript",
       icon: <SiTypescript size={20} />,
     },
     {
-        id : '7',
+      id: '7',
       title: "Docker",
       icon: <FaDocker size={20} />,
     },
@@ -109,12 +109,12 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
-            <div className="cta-overlay-shell">
+            <Link target="_blank" href={"https://drive.google.com/file/d/1b82Liykdy50FpuZWaYY4zCUwDm0zrwJ2/view"} className="cta-overlay-shell">
               <div className="cta-overlay-back absolute inset-0 rounded-lg border-[3px] border-black dark:border-[#a8e6cf] bg-black dark:bg-[#a8e6cf]" />
               <button className="nav-cta cta-overlay-front cursor-pointer rounded-lg border-3 border-black dark:border-[#a8e6cf] bg-[#67d6ea] px-6 py-3 text-sm font-black  sm:px-8 sm:py-4 sm:text-base">
-                Get in Touch!
+                View Resume
               </button>
-            </div>
+            </Link>
           </div>
         </div>
 
