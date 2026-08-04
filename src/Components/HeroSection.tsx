@@ -5,6 +5,7 @@ import { IoLogoNodejs } from "react-icons/io";
 import { RiNextjsLine } from "react-icons/ri";
 import { SiDotnet, SiLeetcode, SiTypescript } from "react-icons/si";
 import AnimatedHeroImage from "./AnimatedHeroImage";
+import { FaAws } from "react-icons/fa6";
 
 interface skillList {
   id: string;
@@ -20,11 +21,6 @@ const HeroSection = () => {
       icon: <IoLogoNodejs size={20} />,
     },
     {
-      id: "2",
-      title: "Dot Net",
-      icon: <SiDotnet size={20} />,
-    },
-    {
       id: "3",
       title: "Next.js",
       icon: <RiNextjsLine size={20} />,
@@ -35,14 +31,19 @@ const HeroSection = () => {
       icon: <DiReact size={20} />,
     },
     {
-      id: "5",
-      title: "C Sharp",
-      icon: <SiDotnet size={20} />,
-    },
-    {
       id: '6',
       title: "Typescript",
       icon: <SiTypescript size={20} />,
+    },
+    {
+      id: "2",
+      title: "AWS",
+      icon: <FaAws size={20} />,
+    },
+    {
+      id: "5",
+      title: "C Sharp",
+      icon: <SiDotnet size={20} />,
     },
     {
       id: '7',
