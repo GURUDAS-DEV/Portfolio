@@ -3,9 +3,10 @@ import { DiReact } from "react-icons/di";
 import { FaDocker, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoLogoNodejs } from "react-icons/io";
 import { RiNextjsLine } from "react-icons/ri";
-import { SiDotnet, SiLeetcode, SiTypescript } from "react-icons/si";
+import { SiExpress, SiLeetcode, SiTypescript } from "react-icons/si";
 import AnimatedHeroImage from "./AnimatedHeroImage";
 import { FaAws } from "react-icons/fa6";
+import { Terminal } from "lucide-react";
 
 interface skillList {
   id: string;
@@ -42,8 +43,8 @@ const HeroSection = () => {
     },
     {
       id: "5",
-      title: "C Sharp",
-      icon: <SiDotnet size={20} />,
+      title: "Go Lang",
+      icon: <Terminal size={20} />,
     },
     {
       id: '7',

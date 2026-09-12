@@ -1,19 +1,19 @@
 import { skillsSection } from "@/utils/skillSet";
-import { AiOutlineDotNet } from "react-icons/ai";
-import { DiNginx, DiSqllite } from "react-icons/di";
-import { FaCode, FaCss3Alt, FaDatabase, FaDocker, FaJava, FaNode, FaPython, FaReact } from "react-icons/fa";
+import { DiNginx } from "react-icons/di";
+import { FaCode, FaCss3Alt, FaDatabase, FaDocker, FaNode, FaPython, FaReact } from "react-icons/fa";
 import { FaAws } from "react-icons/fa6";
 import { GoContainer, GoCopilot } from "react-icons/go";
 import { GrGraphQl, GrUserWorker } from "react-icons/gr";
 import { IoLogoJavascript } from "react-icons/io";
 import { IoCloudCircleSharp } from "react-icons/io5";
-import { MdGeneratingTokens, MdOutlineSettingsApplications } from "react-icons/md";
+import { MdGeneratingTokens } from "react-icons/md";
 import {
   RiBearSmileLine,
   RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
-import { SiAwslambda, SiCplusplus, SiExpress, SiJfrogpipelines, SiLangchain, SiMongodb, SiMongoosedotws, SiPostgresql, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
+import { Terminal, Workflow, Zap } from "lucide-react";
+import { SiAmazons3, SiAwslambda, SiCplusplus, SiExpress, SiJfrogpipelines, SiLangchain, SiMongodb, SiMongoosedotws, SiPostgresql, SiPrisma, SiRedis, SiRedux, SiShadcnui, SiSharp, SiTypescript, SiVectorworks } from "react-icons/si";
 import { TbBrandOauth, TbBrandReactNative, TbDatabaseCog, TbPrompt, TbVector } from "react-icons/tb";
 import { TiDocumentText } from "react-icons/ti";
 import { VscAzure, VscSymbolInterface, VscVscode } from "react-icons/vsc";
@@ -56,10 +56,10 @@ const Skills = () => {
       title: "BACKEND",
       heroColor: "#ff6b9d",
       skillProps: [
-        { skillId: "B1", skillName: "Dot Net", skillIcon: <AiOutlineDotNet /> },
-        { skillId: "B7", skillName: "ASP.Net", skillIcon: <AiOutlineDotNet /> },
         { skillId: "B2", skillName: "Node.js", skillIcon: <FaNode /> },
-        { skillId: "B3", skillName: "Express.js", skillIcon: <SiExpress /> },
+        { skillId: "B3", skillName: "Go Lang", skillIcon: <Terminal /> },
+        { skillId: "B8", skillName: "BullMQ", skillIcon: <Workflow size={18} /> },
+        { skillId: "B9", skillName: "Inngest", skillIcon: <Zap size={18} /> },
         {
           skillId: "B4",
           skillName: "REST API",
@@ -79,11 +79,9 @@ const Skills = () => {
       title: "LANGUAGES",
       heroColor: "#ffd93d",
       skillProps: [
-        { skillId: "L1", skillName: "C#", skillIcon: <SiSharp /> },
-        { skillId: "L2", skillName: "JavaScript", skillIcon: <IoLogoJavascript /> },
         { skillId: "L3", skillName: "TypeScript", skillIcon: <SiTypescript /> },
-        { skillId: "L4", skillName: "Java", skillIcon: <FaJava /> },
-        { skillId: "L5", skillName: "Python", skillIcon: <FaPython /> },
+        { skillId: "L2", skillName: "JavaScript", skillIcon: <IoLogoJavascript /> },
+        { skillId: "L5", skillName: "Go Lang", skillIcon: <Terminal /> },
         { skillId: "L6", skillName: "C++", skillIcon: <SiCplusplus /> },
       ],
     },
@@ -100,7 +98,7 @@ const Skills = () => {
           skillName: "PostgreSQL",
           skillIcon: <SiPostgresql />,
         },
-        { skillId: "DB4", skillName: "SQL Server", skillIcon: <DiSqllite /> },
+        { skillId: "DB4", skillName: "Prisma ORM", skillIcon: <SiPrisma /> },
         { skillId: "DB5", skillName: "Mongoose", skillIcon: <SiMongoosedotws /> },
         { skillId: "DB6", skillName: "PGVector", skillIcon: <SiVectorworks /> },
       ],
@@ -113,13 +111,9 @@ const Skills = () => {
       skillProps: [
         { skillId: "DO1", skillName: "Docker", skillIcon: <FaDocker /> },
         { skillId: "DO3", skillName: "AWS", skillIcon: <FaAws /> },
+        { skillId: "DO7", skillName: "AWS S3", skillIcon: <SiAmazons3 /> },
         { skillId: "DO4", skillName: "AWS Lambda", skillIcon: <SiAwslambda /> },
         { skillId: "DO2", skillName: "CI/CD", skillIcon: <SiJfrogpipelines /> },
-        {
-          skillId: "DO5",
-          skillName: "Application Deployment",
-          skillIcon: <MdOutlineSettingsApplications />,
-        },
         {
           skillId: "DO6",
           skillName: "Containerization",
